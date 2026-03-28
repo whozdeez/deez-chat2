@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: deez-chat-db
+    environment:
+      - POSTGRES_USER=deez
+      - POSTGRES_PASSWORD=fd3de3531c6d7d80511cdc7ca35881d7ca74636c652842ca4c1e43a3ad7a4d84
+      - POSTGRES_DB=deezchat
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
