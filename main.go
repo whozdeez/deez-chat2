@@ -8,6 +8,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
+	"github.com/joho/godotenv"
 	"github.com/whozdeez/deez-chat2/db"
 	"github.com/whozdeez/deez-chat2/handlers"
 	"github.com/whozdeez/deez-chat2/models"
@@ -59,13 +60,16 @@ func serveWs(hub *Hub, c *gin.Context) {
 }
 
 func main() {
+	godotenv.Load()
 	db.Connect()
+	db.Migrate()
 
 	hub := newHub()
 	go hub.run()
 
 	r := gin.Default()
-	r.Static("/", "./frontend")
+	r.StaticFile("/", "./frontend/index.html")
+	r.Static("/static", "./frontend")
 	r.GET("/rooms", handlers.GetRooms)
 	r.GET("/ws", func(c *gin.Context) {
 		serveWs(hub, c)
