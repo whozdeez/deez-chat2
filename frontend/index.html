@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deez Chat</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="lobby-screen">
+        <div class="lobby-card">
+            <h1>Deez Chat</h1>
+            <input type="text" id="nickname-input" placeholder="Your Nickname" maxlength="20">
+            <div id="room-list"></div>
+            <button id="join-btn">Join</button>
+        </div>
+    </div>
+
+    <div id="chat-screen" class="hidden">
+        <div class="chat-header">
+            <button id="back-btn">&#8592;</button>
+            <span id="room-name"></span>
+        </div>
+        <div id="messages"></div>
+        <div class="chat-input-bar">
+            <input type="text" id="message-input" placeholder="Type your message..." maxlength="500">
+            <button id="send-btn">&#8679;</button>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>

@@ -16,7 +16,7 @@ func Migrate() {
 			id SERIAL PRIMARY KEY,
 			room_id INT NOT NULL REFERENCES rooms(id),
 			nickname TEXT NOT NULL,
-			content TEXT NOT NULL,
+			body TEXT NOT NULL,
 			created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 		);
 
